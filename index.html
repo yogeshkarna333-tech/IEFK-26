@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>IEFK ’26 Countdown</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #0b1c2d;
+  color: white;
+  padding-top: 60px;
+}
+#timer {
+  font-size: 42px;
+  margin-top: 30px;
+}
+.small {
+  font-size: 18px;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>IEFK ’26 Countdown</h1>
+<div class="small">Program starts: 07 Feb 2026 | 09:00 AM IST</div>
+
+<div id="timer"></div>
+
+<script>
+const target = new Date("2026-02-07T09:00:00+05:30").getTime();
+
+setInterval(function() {
+  const now = new Date().getTime();
+  const diff = target - now;
+
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff % (1000*60*60*24))/(1000*60*60));
+  const m = Math.floor((diff % (1000*60*60))/(1000*60));
+  const s = Math.floor((diff % (1000*60))/1000);
+
+  document.getElementById("timer").innerHTML =
+    d + " Days  " + h + " Hours  " + m + " Minutes  " + s + " Seconds";
+
+},1000);
+</script>
+
+</body>
+</html>
